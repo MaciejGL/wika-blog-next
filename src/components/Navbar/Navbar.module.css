@@ -15,4 +15,7 @@
 	.DesktopOnly {
 		display: none;
 	}
+	.smDevices {
+		display: none;
+	}
 }

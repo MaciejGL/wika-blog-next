@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Head from 'next/head';
 
-import classes from './Layout.module.css';
+import classes from './Layout.module.scss';
 import Navbar from './Navbar/Navbar';
 import SideDrawer from './Navbar/SideDrawer/SideDrawer';
+import Footer from './Footer/Footer';
 
 const Layout = (props) => {
 	const [showDrawer, setShowDrawer] = useState(false);
@@ -12,7 +13,7 @@ const Layout = (props) => {
 		setShowDrawer((prevState) => !prevState);
 	};
 	return (
-		<div>
+		<div className={classes.wrapper}>
 			<Head>
 				<title>Witkoria Portfolio</title>
 			</Head>
@@ -21,7 +22,7 @@ const Layout = (props) => {
 				<Navbar toggleDrawer={showDrawerHandler} />
 				{props.children}
 			</div>
-			<footer>Footer</footer>
+			<Footer />
 		</div>
 	);
 };

@@ -1,0 +1,11 @@
+.Logo {
+	width: 100%;
+	height: 100%;
+	&.small {
+		height: 60px;
+		width: auto;
+		@media (min-width: 600px) {
+			display: none;
+		}
+	}
+}
