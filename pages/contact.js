@@ -1,9 +1,11 @@
 import Layout from '../src/components/Layout';
 
-export default function Home() {
+const Contact = () => {
 	return (
 		<Layout>
-			<main>khasgdkhas</main>
+			<main>Contact</main>
 		</Layout>
 	);
-}
+};
+
+export default Contact;

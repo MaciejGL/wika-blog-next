@@ -1,9 +1,11 @@
 import Layout from '../src/components/Layout';
 
-export default function Home() {
+const Bio = () => {
 	return (
 		<Layout>
-			<main>khasgdkhas</main>
+			<main>Bio</main>
 		</Layout>
 	);
-}
+};
+
+export default Bio;

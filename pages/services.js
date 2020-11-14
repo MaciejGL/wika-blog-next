@@ -1,9 +1,11 @@
 import Layout from '../src/components/Layout';
 
-export default function Home() {
+const Services = () => {
 	return (
 		<Layout>
-			<main>khasgdkhas</main>
+			<main>Services</main>
 		</Layout>
 	);
-}
+};
+
+export default Services;
