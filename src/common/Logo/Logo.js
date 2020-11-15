@@ -1,7 +1,6 @@
 import classes from './Logo.module.scss';
 
 const Logo = ({ size }) => {
-	console.log(size);
 	let attachedClasses = classes.Logo;
 	if (size) {
 		attachedClasses = [classes.Logo, classes[size]].join(' ');

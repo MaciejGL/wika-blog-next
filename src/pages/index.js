@@ -1,30 +1,35 @@
 import Layout from '../components/Layout';
 import Main from '../components/Main/Main';
-import classes from '../styles/Content.module.scss';
-import homeClasses from '../styles/homepage.module.scss';
+import Images from '../components/Images/Images';
+import Description from '../components/Description/Description';
 
-export default function Home() {
+// import classes from '../styles/homepage.module.scss';
+// import { baseUrl } from '../../config/server';
+import fetchAll from '../utils/promiseAll';
+
+const Home = ({ posts, homepage }) => {
 	return (
 		<Layout>
 			<Main>
-				<div className={classes.leftContainer}>
-					<h1>Home</h1>
-					<h4>This is Homepage</h4>
-				</div>
-				<div className={classes.rightContainer}>
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, animi facilis autem tempore doloribus veritatis ea beatae nostrum pariatur quod
-						asperiores illo laudantium id, consequuntur incidunt amet, ipsa odio quidem.
-					</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. quod asperiores illo laudantium id, consequuntur incidunt amet, ipsa odio quidem.</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt</p>
-				</div>
-				<div className={homeClasses.imgContainer}>
-					<img className={homeClasses.img} src="/profilepicture.jpg" alt="" />
-					<img className={homeClasses.img} src="/sample.jpg" alt="" />
-					<img className={homeClasses.img} src="/samplePainting300.jpg" alt="" />
-				</div>
+				<Description page={homepage} />
+				<Images posts={posts} />
 			</Main>
 		</Layout>
 	);
+};
+
+export async function getStaticProps() {
+	const urls = [`/posts?_limit=3`, `/home-page`];
+	let [posts, homepage] = await fetchAll(urls);
+	console.log(homepage);
+
+	return {
+		props: {
+			posts: posts.data,
+			homepage: homepage.data,
+		},
+		revalidate: 5,
+	};
 }
+
+export default Home;

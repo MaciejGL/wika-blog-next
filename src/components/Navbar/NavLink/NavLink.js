@@ -9,7 +9,6 @@ const NavItem = ({ link, children }) => {
 	if (router.pathname === link) {
 		attachedClasses = [classes.NavLink, classes.selected].join(' ');
 	}
-	console.log(router.pathname === link);
 	return (
 		<li className={attachedClasses}>
 			<Link href={link}>
