@@ -2,9 +2,6 @@ import Layout from '../components/Layout';
 import Main from '../components/Main/Main';
 import Images from '../components/Images/Images';
 import Description from '../components/Description/Description';
-
-// import classes from '../styles/homepage.module.scss';
-// import { baseUrl } from '../../config/server';
 import fetchAll from '../utils/promiseAll';
 
 const Home = ({ posts, homepage }) => {
@@ -12,7 +9,7 @@ const Home = ({ posts, homepage }) => {
 		<Layout>
 			<Main>
 				<Description page={homepage} />
-				<Images posts={posts} />
+				<Images posts={posts} path={'/'} />
 			</Main>
 		</Layout>
 	);
@@ -21,7 +18,6 @@ const Home = ({ posts, homepage }) => {
 export async function getStaticProps() {
 	const urls = [`/posts?_limit=3`, `/home-page`];
 	let [posts, homepage] = await fetchAll(urls);
-	console.log(homepage);
 
 	return {
 		props: {

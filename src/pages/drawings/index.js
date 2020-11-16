@@ -15,17 +15,6 @@ const Drawings = ({ posts, drawings }) => {
 	);
 };
 
-// export async function getStaticPaths() {
-// 	// Call an external API endpoint to get posts
-// 	const urls = [`/posts?category.name=Drawings`];
-// 	let [posts] = await fetchAll(urls);
-// 	// Get the paths we want to pre-render based on posts
-// 	const paths = posts.data.map((post) => ({
-// 		params: { drawing: post._id },
-// 	}));
-// 	return { paths, fallback: false };
-// }
-
 export async function getStaticProps() {
 	const urls = [`/posts?category.name=Drawings`, '/drawings'];
 	let [posts, drawings] = await fetchAll(urls);

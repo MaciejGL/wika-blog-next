@@ -1,11 +1,32 @@
-import Layout from '../components/Layout';
+import React from 'react';
 
-const Contact = () => {
+import Layout from '../components/Layout';
+import Main from '../components/Main/Main';
+import Description from '../components/Description/Description';
+import Form from '../components/Form/Form';
+
+import fetchOne from '../utils/fetchOne';
+
+const Contact = ({ contact }) => {
 	return (
 		<Layout>
-			<main>Contact</main>
+			<Main>
+				<Description page={contact} />
+				<Form />
+			</Main>
 		</Layout>
 	);
 };
+
+export async function getStaticProps() {
+	const url = `/contact`;
+	let contact = await fetchOne(url);
+
+	return {
+		props: {
+			contact: contact.data,
+		},
+	};
+}
 
 export default Contact;

@@ -7,7 +7,7 @@ const Description = ({ page, image }) => {
 		<section className={classes.description}>
 			<div className={classes.leftContainer}>
 				{image && <Image src={baseUrl + image.formats.small.url} alt={image.name} />}
-				<div>
+				<div className={classes.headings}>
 					<h1>{page.heading}</h1>
 					<h2>{page.subheading}</h2>
 				</div>

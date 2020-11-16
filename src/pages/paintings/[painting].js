@@ -2,7 +2,7 @@ import fetch from '../../utils/fetchOne';
 import { baseUrl } from '../../../config/server';
 import { useRouter } from 'next/router';
 
-const Drawing = ({ item }) => {
+const Painting = ({ item }) => {
 	const router = useRouter();
 	return (
 		<div>
@@ -25,23 +25,23 @@ const Drawing = ({ item }) => {
 };
 
 export async function getStaticPaths() {
-	let posts = await fetch(`/posts?category.name=Drawings`);
+	let posts = await fetch(`/posts?category.name=Paintings`);
 	const paths = posts.data.map((post) => ({
-		params: { drawing: post._id },
+		params: { painting: post._id },
 	}));
 	return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
 	console.log(params);
-	let drawing = await fetch(`/posts?_id=${params.drawing}`);
+	let res = await fetch(`/posts?_id=${params.painting}`);
 
 	return {
 		props: {
-			item: drawing.data[0],
+			item: res.data[0],
 		},
 		revalidate: 5,
 	};
 }
 
-export default Drawing;
+export default Painting;

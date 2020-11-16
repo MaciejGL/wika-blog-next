@@ -16,6 +16,18 @@
 		text-align: left;
 		border-bottom: 1px solid;
 	}
+
+	.headings {
+		@media (min-width: 600px) {
+			display: flex;
+			align-items: flex-end;
+			h2 {
+				font-weight: 300;
+				font-size: 1.3em;
+				margin: 0 0 0 10px;
+			}
+		}
+	}
 }
 
 .rightContainer {

@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 import Main from '../components/Main/Main';
 import Description from '../components/Description/Description';
 
-import fetchAll from '../utils/promiseAll';
+import fetchOne from '../utils/fetchOne';
 
 const Bio = ({ bio }) => {
 	return (
@@ -15,9 +15,8 @@ const Bio = ({ bio }) => {
 };
 
 export async function getStaticProps() {
-	const urls = [`/bio`];
-	let [bio] = await fetchAll(urls);
-	console.log(bio);
+	const url = `/bio`;
+	let bio = await fetchOne(url);
 
 	return {
 		props: {
