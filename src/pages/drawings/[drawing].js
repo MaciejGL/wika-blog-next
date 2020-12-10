@@ -4,11 +4,15 @@ import { useRouter } from 'next/router';
 
 const Drawing = ({ item }) => {
 	const router = useRouter();
+	console.log(item);
+	if (!item) {
+		return <p>No picture</p>;
+	}
 	return (
 		<div>
 			<div>
 				<button onClick={() => router.back()}>Go Back</button>
-				<img src={baseUrl + item.picture.formats.medium.url} alt={item.title} />
+				<img src={baseUrl + item?.picture.formats.medium.url} alt={item.title} />
 				<div>
 					<h3>{item.title}</h3>
 					<p>{item.description}</p>
@@ -33,7 +37,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	console.log(params);
+	// console.log(params);
 	let drawing = await fetch(`/posts?_id=${params.drawing}`);
 
 	return {

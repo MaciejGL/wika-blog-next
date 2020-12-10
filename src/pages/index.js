@@ -18,7 +18,7 @@ const Home = ({ posts, homepage }) => {
 export async function getStaticProps() {
 	const urls = [`/posts?_limit=3`, `/home-page`];
 	let [posts, homepage] = await fetchAll(urls);
-
+	// console.log(posts);
 	return {
 		props: {
 			posts: posts.data,
