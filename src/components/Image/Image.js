@@ -21,18 +21,22 @@ const Image = ({ src, alt, post, path }) => {
 		}
 	};
 
-	let image = (
-		<div onClick={handleClickAction} className={classes.imageContainer}>
-			<img className={customStyles} src={src} alt={alt} />
-			<div className={classes.imageDescriptionContainer}>
-				<h1>{post.title}</h1>
-				<footer className={classes.imageDetailsFooter}>
-					<p>{post.available ? 'Dostepny' : 'Niedostepny'}</p>
-					<ChevronRight />
-				</footer>
+	let image;
+
+	if (router.pathname !== '/bio') {
+		image = (
+			<div onClick={handleClickAction} className={classes.imageContainer}>
+				<img className={customStyles} src={src} alt={alt} />
+				<div className={classes.imageDescriptionContainer}>
+					<h1>{post.title}</h1>
+					<footer className={classes.imageDetailsFooter}>
+						<p>{post.available ? 'Dostepny' : 'Niedostepny'}</p>
+						<ChevronRight />
+					</footer>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 
 	if (router.pathname === '/bio') {
 		customStyles = classes.bioImg;
