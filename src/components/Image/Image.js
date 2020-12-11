@@ -9,7 +9,7 @@ const Image = ({ src, alt, post, path }) => {
 
 	let customStyles = classes.img;
 
-	console.log(post);
+	// console.log(src);
 	let route = post && `${router.pathname}/${post._id}`;
 	if (path === '/') {
 		route = `/${post.category.name.toLowerCase() === 'drawings' ? 'drawings' : 'paintings'}/${post._id}`;

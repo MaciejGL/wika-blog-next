@@ -4,11 +4,14 @@ import { useRouter } from 'next/router';
 
 const Painting = ({ item }) => {
 	const router = useRouter();
+	if (!item) {
+		return <p>No picture</p>;
+	}
 	return (
 		<div>
 			<div>
 				<button onClick={() => router.back()}>Go Back</button>
-				<img src={baseUrl + item.picture.formats.medium.url} alt={item.title} />
+				<img src={baseUrl + item?.picture.formats.medium.url} alt={item.title} />
 				<div>
 					<h3>{item.title}</h3>
 					<p>{item.description}</p>
