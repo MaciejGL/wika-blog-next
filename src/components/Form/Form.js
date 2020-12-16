@@ -54,7 +54,6 @@ const CustomForm = () => {
 			});
 	}, [router.query]);
 
-	console.log({ artRequest });
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const errors = validate(formElements);
@@ -69,7 +68,7 @@ const CustomForm = () => {
 			subject: formElements.title.value,
 			text: formElements.description.value,
 		};
-		const email = await axios.post('http://localhost:1337/email', emailBody);
+		const email = await axios.post(`${baseUrl}/email`, emailBody);
 		console.log({ email });
 	};
 
