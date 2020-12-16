@@ -63,12 +63,12 @@ const CustomForm = () => {
 
 		const emailBody = {
 			to: 'm.glowacki@gmail.com',
-			from: formElements.email.value,
+			email: formElements.email.value,
 			replyTo: formElements.email.value,
 			subject: formElements.title.value,
 			text: formElements.description.value,
 		};
-		const email = await axios.post(`${baseUrl}/email`, emailBody);
+		const email = await axios.post(`${baseUrl}/emails`, emailBody);
 		console.log({ email });
 	};
 
