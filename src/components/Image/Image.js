@@ -7,9 +7,6 @@ import classes from './Image.module.css';
 const Image = ({ src, alt, post, path }) => {
 	const router = useRouter();
 
-	let customStyles = classes.img;
-
-	// console.log(src);
 	let route = post && `${router.pathname}/${post._id}`;
 	if (path === '/') {
 		route = `/${post.category.name.toLowerCase() === 'drawings' ? 'drawings' : 'paintings'}/${post._id}`;
@@ -21,12 +18,10 @@ const Image = ({ src, alt, post, path }) => {
 		}
 	};
 
-	let image;
-
-	if (router.pathname !== '/bio') {
-		image = (
-			<div onClick={handleClickAction} className={classes.imageContainer}>
-				<img className={customStyles} src={src} alt={alt} />
+	let image = router.pathname !== '/bio' && (
+		<div onClick={handleClickAction} className={classes.imageContainer}>
+			<img className={classes.img} src={src} alt={alt} />
+			{
 				<div className={classes.imageDescriptionContainer}>
 					<h1>{post.title}</h1>
 					<footer className={classes.imageDetailsFooter}>
@@ -34,13 +29,21 @@ const Image = ({ src, alt, post, path }) => {
 						<ChevronRight />
 					</footer>
 				</div>
-			</div>
-		);
-	}
+			}
+		</div>
+	);
 
-	if (router.pathname === '/bio') {
-		customStyles = classes.bioImg;
-		image = <img onClick={handleClickAction} className={customStyles} src={src} alt={alt} />;
+	switch (router.pathname) {
+		case '/drawings/[drawing]':
+			image = <img className={classes.detailsPageImage} src={src} alt={alt} />;
+			break;
+		case '/paintings/[painting]':
+			image = <img className={classes.detailsPageImage} src={src} alt={alt} />;
+			break;
+		case '/bio':
+			image = <img onClick={handleClickAction} className={classes.bioImg} src={src} alt={alt} />;
+		default:
+			break;
 	}
 
 	return image;

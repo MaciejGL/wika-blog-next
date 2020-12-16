@@ -1,30 +1,20 @@
 import fetch from '../../utils/fetchOne';
-import { baseUrl } from '../../../config/server';
-import { useRouter } from 'next/router';
+
+import classes from './drawing.module.scss';
+
+import Layout from '../../components/Layout';
+import DetailedArtPage from '../../components/DetailedArtPage/DetailedArtPage';
 
 const Drawing = ({ item }) => {
-	const router = useRouter();
-	console.log(item);
 	if (!item) {
 		return <p>No picture</p>;
 	}
 	return (
-		<div>
-			<div>
-				<button onClick={() => router.back()}>Go Back</button>
-				<img src={baseUrl + item?.picture.formats.medium.url} alt={item.title} />
-				<div>
-					<h3>{item.title}</h3>
-					<p>{item.description}</p>
-					<footer>
-						<div>
-							{item.available && <p>Cena {item.price}</p>}
-							<p>Dostępność {item.available ? 'Dostępne' : 'Niedostępne'}</p>
-						</div>
-					</footer>
-				</div>
+		<Layout>
+			<div className={classes.wrapper}>
+				<DetailedArtPage item={item} />
 			</div>
-		</div>
+		</Layout>
 	);
 };
 
