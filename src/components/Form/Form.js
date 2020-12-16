@@ -1,57 +1,97 @@
-import React, { useState } from 'react';
-import validator from 'validator';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { Input, InputLabel, FormControl, Button, OutlinedInput } from '@material-ui/core';
+import axios from 'axios';
+
+import { baseUrl } from '../../../config/server';
 
 import classes from './Form.module.scss';
+import { useStyles } from './formStyles';
+import { handleChange, transformFormStateIntoArray, setErrors, validate } from './utils';
+
+import FormArt from '../FormArt/FormArt';
 
 const CustomForm = () => {
-	const [nameVal, setNameVal] = useState('');
-	const [emailVal, setEmailVal] = useState('');
-	const [messageVal, setMessageVal] = useState('');
-	const [error, setError] = useState([]);
+	const materialClasses = useStyles();
+	const router = useRouter();
+	const [formElements, setFormElements] = useState({
+		name: {
+			id: 'name',
+			label: 'Imię',
+			value: '',
+			error: false,
+			errorMessage: '',
+		},
+		email: {
+			id: 'email',
+			label: 'Email',
+			value: '',
+			error: false,
+			errorMessage: '',
+		},
+		title: {
+			id: 'title',
+			label: 'Tytuł',
+			value: '',
+			error: false,
+			errorMessage: '',
+		},
+		description: {
+			id: 'description',
+			label: 'Wiadomość',
+			value: '',
+			error: false,
+			errorMessage: '',
+			multiline: true,
+		},
+	});
+	const [artRequest, setArtRequest] = useState(null);
+	useEffect(() => {
+		if (Object.keys(router.query).length === 3)
+			setArtRequest({
+				...router.query,
+				image: `${baseUrl}/files/${router.query.image}`,
+			});
+	}, [router.query]);
 
-	const handleSubmit = (e) => {
+	console.log({ artRequest });
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		let errors = [];
-		if (!validator.isEmail(emailVal)) {
-			errors.push('Invalid email address.');
-		}
-		if (!validator.isLength(nameVal, { min: 3 })) {
-			errors.push('Name has to be minimum 3 characters long.');
-		}
-		if (!validator.isLength(messageVal, { min: 5 })) {
-			errors.push('Message has to be minimum 5 characters long.');
+		const errors = validate(formElements);
+		if (errors && Object.keys(errors).length > 0) {
+			return setErrors(errors, setFormElements);
 		}
 
-		if (errors.lenght > 0) {
-			setError(errors);
-		}
-
-		console.log({
-			name: nameVal,
-			email: emailVal,
-			message: messageVal,
-		});
+		const emailBody = {
+			to: 'm.glowacki@gmail.com',
+			from: formElements.email.value,
+			replyTo: formElements.email.value,
+			subject: formElements.title.value,
+			text: formElements.description.value,
+		};
+		const email = await axios.post('http://localhost:1337/email', emailBody);
+		console.log({ email });
 	};
 
-	const handleChange = (e) => {};
-
+	const formElementsArray = transformFormStateIntoArray(formElements);
 	return (
 		<form onSubmit={handleSubmit} className={classes.form}>
-			<FormControl className={classes.formControl}>
-				<InputLabel htmlFor="component-simple">Imię</InputLabel>
-				<Input id="component-simple" value={nameVal} onChange={(e) => setNameVal(e.target.value)} />
-			</FormControl>
-			<FormControl className={classes.formControl}>
-				<InputLabel htmlFor="component-simple">Email</InputLabel>
-				<Input id="component-simple" value={emailVal} onChange={(e) => setEmailVal(e.target.value)} />
-			</FormControl>
-			<FormControl className={classes.formControl}>
-				<InputLabel htmlFor="text">Wiadomość</InputLabel>
-				<OutlinedInput id="text" multiline rows={4} rowsMax={6} />
-			</FormControl>
-
-			<Button variant="contained">Wyślij Wiadomość</Button>
+			{artRequest && <FormArt art={artRequest} />}
+			{formElementsArray.map(({ id, label, value, error, errorMessage, multiline }) => (
+				<FormControl key={id} className={(classes.formControl, materialClasses.root)} error={error}>
+					<InputLabel className={classes.formControlLabel} htmlFor={id}>
+						{label} {error && `- ${errorMessage}`}
+					</InputLabel>
+					{!multiline ? (
+						<Input className={classes.formInput} id={id} value={value} onChange={(e) => handleChange(e, setFormElements)} />
+					) : (
+						<OutlinedInput id={id} value={value} onChange={(e) => handleChange(e, setFormElements)} multiline rows={4} rowsMax={6} />
+					)}
+				</FormControl>
+			))}
+			<Button variant="contained" onClick={handleSubmit}>
+				Wyślij Wiadomość
+			</Button>
 		</form>
 	);
 };

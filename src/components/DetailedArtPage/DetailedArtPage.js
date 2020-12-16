@@ -11,7 +11,7 @@ import classes from './DetailedArtPage.module.scss';
 
 const DetailedArtPage = ({ item }) => {
 	const router = useRouter();
-
+	console.log(item.picture);
 	return (
 		<div>
 			<div className={classes.imageWrapper}>
@@ -25,10 +25,7 @@ const DetailedArtPage = ({ item }) => {
 						<ArrowBack fontSize="small" /> Wróć
 					</Button>
 					{item.available ? (
-						<Button
-							onClickHandler={() => router.push(`/contact?id=${item.id}&title=${item.title}&imageurl=${item.picture.formats.thumbnail.url}`)}
-							style="order"
-						>
+						<Button onClickHandler={() => router.push(`/contact?id=${item.id}&title=${item.title}&image=${item.picture.formats.small.name}`)} style="order">
 							Zamów
 						</Button>
 					) : (
