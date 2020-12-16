@@ -1,0 +1,33 @@
+.imageWrapper {
+	margin-top: 20px;
+	max-width: 400px;
+	@media (min-width: 701px) {
+		max-width: 500px;
+	}
+	@media (min-width: 1001px) {
+		max-width: 600px;
+	}
+}
+
+.artDescriptionContainer {
+	margin: 0 auto;
+	padding: 20px;
+	max-width: 600px;
+}
+.artTitle {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.artDescription {
+	padding: 20px 30px;
+}
+
+.artFooter {
+	display: flex;
+	justify-content: space-between;
+}
+
+.unavailable {
+	margin: 0;
+}
