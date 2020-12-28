@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { ChevronRight } from '@material-ui/icons';
+import { ChevronRight, Check, Clear } from '@material-ui/icons';
 
 import classes from './Image.module.css';
 
@@ -34,6 +34,16 @@ const Image = ({ src, alt, post, path }) => {
 					</footer>
 				</div>
 			}
+
+			{post.available ? (
+				<div className={classes.smAvailabiltiy}>
+					<Check />
+				</div>
+			) : (
+				<div className={[classes.smAvailabiltiy, classes.unavailable].join(' ')}>
+					<Clear />
+				</div>
+			)}
 		</div>
 	);
 	console.log(router.pathname);
