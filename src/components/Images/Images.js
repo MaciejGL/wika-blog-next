@@ -7,7 +7,7 @@ import { baseUrl } from '../../../config/server';
 
 const Images = ({ posts, path }) => {
 	return (
-		<div className={classes.imgContainer}>
+		<div className={classes.imagesContainer}>
 			{posts && posts.map((post) => <Image key={post._id} post={post} src={baseUrl + post.picture.url} alt={post.title} path={path} />)}
 		</div>
 	);

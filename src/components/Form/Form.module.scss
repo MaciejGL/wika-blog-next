@@ -11,3 +11,35 @@
 .formInput {
 	padding-left: 10px;
 }
+
+.flashMessage {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 20px;
+	margin: 0;
+	background-color: #eee;
+	border-radius: 20px;
+}
+.flashMessage svg {
+	cursor: pointer;
+}
+
+.success,
+.failure {
+	margin: 0;
+	font-size: 0.9em;
+}
+
+.success {
+	color: green;
+}
+
+.failure {
+	color: red;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+}

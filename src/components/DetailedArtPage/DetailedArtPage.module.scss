@@ -1,31 +1,54 @@
+.detailsWrapper {
+	display: flex;
+	flex-direction: column;
+	@media (min-width: 1024px) {
+		flex-direction: row;
+		justify-content: center;
+		// align-content: stretch;
+		width: 100%;
+		max-width: 800px;
+	}
+}
+
 .imageWrapper {
 	margin-top: 20px;
 	max-width: 400px;
-	@media (min-width: 701px) {
-		max-width: 500px;
-	}
-	@media (min-width: 1001px) {
-		max-width: 600px;
+	@media (min-width: 1024px) {
+		margin: 0;
+		width: auto;
+		height: 400px;
 	}
 }
 
 .artDescriptionContainer {
-	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	// align-items: flex-start;
 	padding: 20px;
 	max-width: 600px;
+	@media (min-width: 1024px) {
+		width: 100%;
+	}
 }
 .artTitle {
 	margin-top: 20px;
+	width: 100%;
 	text-align: center;
+	flex-grow: 0;
 }
 
 .artDescription {
-	padding: 20px 30px;
+	flex-grow: 1;
+	width: 100%;
+	padding: 20px 0;
+	margin: 0;
 }
 
 .artFooter {
 	display: flex;
 	justify-content: space-between;
+	flex-shrink: 1;
+	width: 100%;
 }
 
 .unavailable {

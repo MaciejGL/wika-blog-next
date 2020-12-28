@@ -38,6 +38,9 @@ const validate = (formElements) => {
 	if (!validator.isLength(formElements.name.value, { min: 2 })) {
 		errors.name = 'wymagane';
 	}
+	if (!validator.isLength(formElements.title.value, { min: 2 })) {
+		errors.title = 'wymagane';
+	}
 	if (!validator.isLength(formElements.description.value, { min: 5 })) {
 		errors.description = 'wymagana';
 	}

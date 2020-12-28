@@ -13,7 +13,7 @@ const DetailedArtPage = ({ item }) => {
 	const router = useRouter();
 	console.log(item.picture);
 	return (
-		<div>
+		<div className={classes.detailsWrapper}>
 			<div className={classes.imageWrapper}>
 				<Image src={baseUrl + item?.picture.formats.medium.url} alt={item.title} path="drawings/id" post={item} />
 			</div>
