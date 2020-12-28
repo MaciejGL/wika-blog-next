@@ -11,6 +11,7 @@ import { useStyles } from './formStyles';
 import { handleChange, transformFormStateIntoArray, setErrors, validate } from './utils';
 
 import FormArt from '../FormArt/FormArt';
+import Spinner from '../../common/Spinner/Spinner';
 
 const CustomForm = () => {
 	const materialClasses = useStyles();
@@ -48,6 +49,7 @@ const CustomForm = () => {
 	});
 	const [artRequest, setArtRequest] = useState(null);
 	const [response, setResponse] = useState(false);
+	const [loading, setLoading] = useState(false);
 	useEffect(() => {
 		if (Object.keys(router.query).length === 3)
 			setArtRequest({
@@ -58,8 +60,12 @@ const CustomForm = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		setLoading(true);
 		const errors = validate(formElements);
 		if (errors && Object.keys(errors).length > 0) {
+			setLoading(false);
+
 			return setErrors(errors, setFormElements);
 		}
 
@@ -75,39 +81,43 @@ const CustomForm = () => {
 		}
 
 		const response = await axios.post(`${baseUrl}/emails`, emailBody);
-		console.log(response.data);
 
 		if (response.data.error) {
-			return setResponse(response.data);
+			return setResponse('failed');
 		}
 
-		setResponse(true);
+		setResponse('succeed');
 		const newForm = { ...formElements };
 		for (let key in newForm) {
 			newForm[key].value = '';
 		}
 
 		setFormElements(newForm);
-		// formElementsArray = transformFormStateIntoArray(formElements);
 
-		//load spinner,
-		//clean/remove form,
-		//add success message
-		// redirect to homepage.
+		setLoading(false);
 	};
 	const formElementsArray = transformFormStateIntoArray(formElements);
 
+	const flashMessage = response && (
+		<div className={classes.flashMessage}>
+			<p className={response === 'failed' ? classes.failure : classes.success}>
+				{response.error ? 'Email nie został wysłany, sprobój ponownie później.' : 'Email został wysłany, wkrótcę odpowiem na Twoją wiadomość.'}
+			</p>
+			<Close
+				onClick={() => {
+					setResponse('');
+					setArtRequest(null);
+				}}
+			/>
+		</div>
+	);
+
+	const requestedArt = artRequest && response !== 'succeed' && <FormArt art={artRequest} />;
+
 	return (
 		<form onSubmit={handleSubmit} className={classes.form}>
-			{response && (
-				<div className={classes.flashMessage}>
-					<p className={response.error ? classes.failure : classes.success}>
-						{response.error ? 'Email nie został wysłany, sprobój ponownie później.' : 'Email został wysłany, wkrótcę odpowiem na Twoją wiadomość.'}
-					</p>
-					<Close onClick={() => setResponse('')} />
-				</div>
-			)}
-			{artRequest && <FormArt art={artRequest} />}
+			{flashMessage}
+			{requestedArt}
 			{formElements &&
 				formElementsArray.map(({ id, label, value, error, errorMessage, multiline }) => (
 					<FormControl key={id} className={(classes.formControl, materialClasses.root)} error={error}>
@@ -121,9 +131,12 @@ const CustomForm = () => {
 						)}
 					</FormControl>
 				))}
-			<Button variant="contained" onClick={handleSubmit}>
-				Wyślij Wiadomość
-			</Button>
+			<div className={classes.actions}>
+				<Button variant="contained" onClick={handleSubmit}>
+					Wyślij Wiadomość
+				</Button>
+				{loading && <Spinner size="small" />}
+			</div>
 		</form>
 	);
 };
