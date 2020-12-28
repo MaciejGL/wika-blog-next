@@ -11,7 +11,7 @@ import classes from './DetailedArtPage.module.scss';
 
 const DetailedArtPage = ({ item }) => {
 	const router = useRouter();
-	console.log(item.picture);
+	// console.log(item.picture);
 	return (
 		<div className={classes.detailsWrapper}>
 			<div className={classes.imageWrapper}>
