@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	console.log(params);
+	// console.log(params);
 	let res = await fetch(`/posts?_id=${params.painting}`);
 
 	return {

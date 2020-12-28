@@ -81,8 +81,8 @@ const CustomForm = () => {
 		}
 
 		const response = await axios.post(`${baseUrl}/emails`, emailBody);
-
 		if (response.data.error) {
+			setLoading(false);
 			return setResponse('failed');
 		}
 
@@ -101,7 +101,7 @@ const CustomForm = () => {
 	const flashMessage = response && (
 		<div className={classes.flashMessage}>
 			<p className={response === 'failed' ? classes.failure : classes.success}>
-				{response.error ? 'Email nie został wysłany, sprobój ponownie później.' : 'Email został wysłany, wkrótcę odpowiem na Twoją wiadomość.'}
+				{response === 'failed' ? 'Email nie został wysłany, sprobój ponownie później.' : 'Email został wysłany, wkrótcę odpowiem na Twoją wiadomość.'}
 			</p>
 			<Close
 				onClick={() => {

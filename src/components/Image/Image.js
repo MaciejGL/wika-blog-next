@@ -46,7 +46,7 @@ const Image = ({ src, alt, post, path }) => {
 			)}
 		</div>
 	);
-	console.log(router.pathname);
+	// console.log(router.pathname);
 
 	switch (router.pathname) {
 		case '/drawings/[drawing]':

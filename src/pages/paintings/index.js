@@ -18,7 +18,7 @@ const Paintings = ({ posts, paintings }) => {
 export async function getStaticProps() {
 	const urls = [`/posts?category.name=Paintings`, '/paintings'];
 	let [posts, paintings] = await fetchAll(urls);
-	console.log(paintings.data);
+	// console.log(paintings.data);
 
 	return {
 		props: {
