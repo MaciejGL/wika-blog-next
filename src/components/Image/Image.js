@@ -25,13 +25,18 @@ const Image = ({ src, alt, post, path }) => {
 				<div className={classes.imageDescriptionContainer}>
 					<h1>{post.title}</h1>
 					<footer className={classes.imageDetailsFooter}>
-						<p>{post.available ? 'Dostepny' : 'Niedostepny'}</p>
-						<ChevronRight />
+						<div className={classes.footerParagraph}>
+							<p>{post.available ? 'Dostepny' : 'Niedostepny'}</p>
+						</div>
+						<div className={classes.footerBtn}>
+							<ChevronRight />
+						</div>
 					</footer>
 				</div>
 			}
 		</div>
 	);
+	console.log(router.pathname);
 
 	switch (router.pathname) {
 		case '/drawings/[drawing]':

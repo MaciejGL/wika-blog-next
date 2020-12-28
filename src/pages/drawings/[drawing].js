@@ -11,9 +11,7 @@ const Drawing = ({ item }) => {
 	}
 	return (
 		<Layout>
-			<div className={classes.wrapper}>
-				<DetailedArtPage item={item} />
-			</div>
+			<DetailedArtPage item={item} />
 		</Layout>
 	);
 };
