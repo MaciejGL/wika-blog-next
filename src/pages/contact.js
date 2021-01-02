@@ -7,16 +7,14 @@ import Form from '../components/Form/Form';
 
 import fetchOne from '../utils/fetchOne';
 
-const Contact = ({ contact }) => {
-	return (
-		<Layout>
-			<Main>
-				<Description page={contact} />
-				<Form />
-			</Main>
-		</Layout>
-	);
-};
+const Contact = ({ contact }) => (
+	<Layout>
+		<Main>
+			<Description page={contact} />
+			<Form />
+		</Main>
+	</Layout>
+);
 
 export async function getStaticProps() {
 	const url = `/contact`;
