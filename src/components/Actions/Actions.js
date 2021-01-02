@@ -6,7 +6,7 @@ import classes from './Actions.module.scss';
 const Actions = ({ page }) => {
 	const router = useRouter();
 	let actions;
-
+	// Switch in case there will be more actions in future.
 	switch (page) {
 		case 'services':
 			actions = (

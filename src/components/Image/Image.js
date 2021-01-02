@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-import { ChevronRight, Check, Clear } from '@material-ui/icons';
+import { ChevronRight, Check, Block } from '@material-ui/icons';
 
 import classes from './Image.module.css';
 
@@ -23,7 +24,7 @@ const Image = ({ src, alt, post, path }) => {
 			<img className={classes.img} src={src} alt={alt} />
 			{
 				<div className={classes.imageDescriptionContainer}>
-					<h1>{post.title}</h1>
+					<h1 className={classes.postTitle}>{post.title}</h1>
 					<footer className={classes.imageDetailsFooter}>
 						<div className={classes.footerParagraph}>
 							<p>{post.available ? 'Dostepny' : 'Niedostepny'}</p>
@@ -41,7 +42,7 @@ const Image = ({ src, alt, post, path }) => {
 				</div>
 			) : (
 				<div className={[classes.smAvailabiltiy, classes.unavailable].join(' ')}>
-					<Clear />
+					<Block />
 				</div>
 			)}
 		</div>
