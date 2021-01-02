@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Markdown from 'markdown-to-jsx';
-import { ArrowBack, Send } from '@material-ui/icons';
+import { ArrowBack } from '@material-ui/icons';
 
 import { baseUrl } from '../../../config/server';
 
@@ -12,14 +12,13 @@ import classes from './DetailedArtPage.module.scss';
 
 const DetailedArtPage = ({ item }) => {
 	const router = useRouter();
-	// console.log(item.picture);
-	console.log(item);
 	let image = null;
 	if (item && item.picture.formats.medium) {
 		image = item.picture.formats.medium.url;
 	} else if (item) {
 		image = item.picture.url;
 	}
+
 	return (
 		<div className={classes.detailsWrapper}>
 			<div className={classes.imageWrapper}>
