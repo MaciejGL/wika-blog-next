@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import { ChevronRight, Check, Block } from '@material-ui/icons';
 
