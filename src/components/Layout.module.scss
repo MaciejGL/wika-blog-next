@@ -1,14 +1,15 @@
 .wrapper {
+	position: relative;
 	display: flex;
-	flex-direction: column;
-
-	justify-content: space-between;
+	flex-wrap: wrap;
 	min-height: 100vh;
 }
 
-.Layout {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-	align-items: center;
+.Toolbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	background-color: beige;
 }

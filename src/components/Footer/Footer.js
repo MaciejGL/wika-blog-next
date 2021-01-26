@@ -1,9 +1,9 @@
+import React from 'react';
+
 import classes from './Footer.module.scss';
 
-const Footer = () => (
-	<div className={classes.footer}>
-		<p>&copy; Wiktoria Tymoszczuk 2020</p>
-	</div>
-);
+const Footer = () => {
+	return <div className={classes.Footer}>Footer</div>;
+};
 
 export default Footer;

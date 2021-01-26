@@ -1,0 +1,17 @@
+.Toolbar {
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 900;
+	color: var(--dark-color);
+	transition: 0.3s;
+	& > div {
+		margin: 10px;
+	}
+	&.switchColor {
+		color: var(--light-color);
+	}
+}

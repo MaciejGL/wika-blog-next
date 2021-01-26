@@ -3,7 +3,6 @@ import fetch from '../../utils/fetchOne';
 import classes from './drawing.module.scss';
 
 import Layout from '../../components/Layout';
-import DetailedArtPage from '../../components/DetailedArtPage/DetailedArtPage';
 
 const Drawing = ({ item }) => {
 	if (!item) {
@@ -11,7 +10,7 @@ const Drawing = ({ item }) => {
 	}
 	return (
 		<Layout>
-			<DetailedArtPage item={item} />
+			<p>Drawing Single</p>
 		</Layout>
 	);
 };
@@ -25,7 +24,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	// console.log(params);
 	let drawing = await fetch(`/posts?_id=${params.drawing}`);
 
 	return {

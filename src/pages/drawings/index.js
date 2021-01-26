@@ -1,16 +1,10 @@
 import Layout from '../../components/Layout';
-import Main from '../../components/Main/Main';
-import Images from '../../components/Images/Images';
-import Description from '../../components/Description/Description';
 import fetchAll from '../../utils/promiseAll';
 
 const Drawings = ({ posts, drawings }) => {
 	return (
 		<Layout>
-			<Main>
-				<Description page={drawings} />
-				<Images posts={posts} />
-			</Main>
+			<p>Drawings</p>
 		</Layout>
 	);
 };

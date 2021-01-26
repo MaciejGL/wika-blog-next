@@ -2,6 +2,9 @@
 
 :root {
 	--shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+	--dark-color: #051923;
+	--light-color: #f7ece1;
+	--contrast-color: #ed9b40;
 }
 
 body {
@@ -9,6 +12,7 @@ body {
 	font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: var(--light-color);
 }
 
 h2 {
@@ -62,4 +66,14 @@ button {
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
 }

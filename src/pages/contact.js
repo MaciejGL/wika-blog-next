@@ -1,18 +1,12 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import Main from '../components/Main/Main';
-import Description from '../components/Description/Description';
-import Form from '../components/Form/Form';
 
 import fetchOne from '../utils/fetchOne';
 
 const Contact = ({ contact }) => (
 	<Layout>
-		<Main>
-			<Description page={contact} />
-			<Form />
-		</Main>
+		<p>Contact</p>
 	</Layout>
 );
 

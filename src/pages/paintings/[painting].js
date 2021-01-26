@@ -1,8 +1,6 @@
 import fetch from '../../utils/fetchOne';
-import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout';
-import DetailedArtPage from '../../components/DetailedArtPage/DetailedArtPage';
 import classes from './painting.module.scss';
 
 const Painting = ({ item }) => {
@@ -11,7 +9,7 @@ const Painting = ({ item }) => {
 	}
 	return (
 		<Layout>
-			<DetailedArtPage item={item} />
+			<p>Single Painting View</p>
 		</Layout>
 	);
 };
@@ -25,7 +23,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	// console.log(params);
 	let res = await fetch(`/posts?_id=${params.painting}`);
 
 	return {

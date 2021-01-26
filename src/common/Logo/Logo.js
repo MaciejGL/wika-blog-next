@@ -6,7 +6,11 @@ const Logo = ({ size }) => {
 		attachedClasses = [classes.Logo, classes[size]].join(' ');
 	}
 
-	return <img className={attachedClasses} src="/logo.png" alt="Wiktoria T Art" />;
+	return (
+		<div>
+			<img className={attachedClasses} src="/logo.png" alt="Wiktoria T Art" />
+		</div>
+	);
 };
 
 export default Logo;

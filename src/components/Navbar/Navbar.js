@@ -1,19 +1,42 @@
 import React from 'react';
 
-import classes from './Navbar.module.css';
-import NavLinks from './NavLinks/NavLinks';
-import DrawerBurger from './DrawerBurger/DrawerBurger';
-import Logo from '../../common/Logo/Logo';
+import Link from './NavLink';
 
-const Navbar = (props) => {
+import classes from './Navbar.module.scss';
+
+const Navbar = () => {
+	const links = [
+		{
+			name: 'Home',
+			path: '/',
+		},
+		{
+			name: 'Bio',
+			path: '/bio',
+		},
+		{
+			name: 'Obrazy',
+			path: '/paintings',
+		},
+		{
+			name: 'Rysunki',
+			path: '/drawings',
+		},
+		{
+			name: 'Kontakt',
+			path: '/contact',
+		},
+	];
+
+	const linksList = links.map((link) => (
+		<Link key={link.name} link={link.path}>
+			{link.name}
+		</Link>
+	));
 	return (
-		<header className={classes.Toolbar}>
-			<DrawerBurger clicked={props.toggleDrawer} />
-			<Logo size="small" />
-			<nav className={classes.DesktopOnly}>
-				<NavLinks />
-			</nav>
-		</header>
+		<nav className={classes.Navbar}>
+			<ul>{linksList}</ul>
+		</nav>
 	);
 };
 
