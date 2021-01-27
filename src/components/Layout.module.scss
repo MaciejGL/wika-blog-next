@@ -4,13 +4,14 @@
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	min-height: 100vh;
+	// min-height: 100vh;
 }
 .Layout {
 	padding: 1rem;
 	@media (min-width: $large-view) {
 		margin-left: $header-width;
 		padding: 3rem;
+		width: 100%;
 	}
 }
 

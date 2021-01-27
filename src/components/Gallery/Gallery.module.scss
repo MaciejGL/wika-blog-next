@@ -1,17 +1,17 @@
 @import '../../styles/utils/variables';
 
-.masonryWithColumns {
+.columns {
+	margin: 0 auto;
+	max-width: 900px;
 	columns: 1;
-	// column-gap: 1.3rem;
-	// padding: 1rem;
-	// box-shadow: $shadow;
+	column-fill: balance;
+	column-rule: 1px solid #ddd;
+	column-gap: 50px;
 	& .article {
-		background: #ec985a;
-		margin: 0 0 1rem;
 		display: inline-block;
-		width: 100%;
-		text-align: center;
-		box-shadow: $shadow;
+		padding-bottom: 25px;
+		margin-bottom: 25px;
+		border-bottom: 1px solid #ddd;
 	}
 
 	@media (min-width: $medium-view) {
@@ -25,5 +25,8 @@
 .image {
 	width: 100%;
 	object-fit: cover;
-	display: block;
+	display: inline-block;
+	box-shadow: $shadow;
+	max-width: 100%;
+	vertical-align: middle;
 }
