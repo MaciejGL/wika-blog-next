@@ -1,22 +1,26 @@
 import Layout from '../../components/Layout';
 import fetchAll from '../../utils/promiseAll';
 
-const Drawings = ({ posts, drawings }) => {
+// Components
+import Description from '../../components/Description/Description';
+import Gallery from '../../components/Gallery/Gallery';
+
+const Drawings = ({ textContent, drawings }) => {
 	return (
 		<Layout>
-			<p>Drawings</p>
+			{textContent && <Description textContent={textContent} />}
+			<Gallery articles={drawings} />
 		</Layout>
 	);
 };
 
 export async function getStaticProps() {
 	const urls = [`/posts?category.name=Drawings`, '/drawings'];
-	let [posts, drawings] = await fetchAll(urls);
-
+	let [drawings, textContent] = await fetchAll(urls);
 	return {
 		props: {
-			posts: posts.data,
 			drawings: drawings.data,
+			textContent: textContent.data,
 		},
 		revalidate: 5,
 	};

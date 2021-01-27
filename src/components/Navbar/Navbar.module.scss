@@ -1,9 +1,15 @@
+@import '../../styles/utils/variables';
+
 .NavLink {
 	font-size: 1.3rem;
 	line-height: 1.4;
-	color: var(--light-color);
+	color: $light-color;
+	@media (min-width: $large-view) {
+		font-size: 1.3rem;
+		line-height: 1.6;
+	}
 }
 
 .selected {
-	color: var(--contrast-color);
+	color: $contrast-color;
 }

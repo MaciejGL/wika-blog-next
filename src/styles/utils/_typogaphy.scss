@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+body {
+	font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+	font-size: 3rem;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -0.00833em;
+	margin: 0;
+	display: block;
+}
+
+h2 {
+	margin: 0 0 10px;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.6;
+	letter-spacing: 0.0075em;
+}
+
+h3 {
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.33;
+	letter-spacing: 0em;
+	margin: 10px;
+}
+h4 {
+	font-size: 1.2rem;
+	font-weight: 400;
+	line-height: 1.33;
+	letter-spacing: 0em;
+	margin: 10px;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.00938em;
+}

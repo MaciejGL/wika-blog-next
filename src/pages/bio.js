@@ -1,11 +1,17 @@
+// Components
 import Layout from '../components/Layout';
+import Description from '../components/Description/Description';
 
+// Utils
 import fetchOne from '../utils/fetchOne';
+import { baseUrl } from '../../config/server';
 
 const Bio = ({ bio }) => {
+	console.log(bio);
 	return (
 		<Layout>
-			<p>BIO</p>
+			<img src={baseUrl + bio.profilepicture.url} alt={bio.profilepicture.name} />
+			<Description textContent={bio} />
 		</Layout>
 	);
 };

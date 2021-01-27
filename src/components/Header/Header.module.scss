@@ -1,20 +1,27 @@
+@import '../../styles/utils/variables';
+
 .Header {
 	position: fixed;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-left: 3rem;
+	padding: 0 2rem 3rem;
 	top: 0;
 	left: -150%;
 	width: 100%;
 	height: 100vh;
-	color: var(--light-color);
-	background-color: var(--dark-color);
-	transition: 0.3s ease-out;
+	color: $light-color;
+	background-color: $dark-color;
+	transition: left 0.3s ease-out;
+	@media (min-width: 960px) {
+		left: 0;
+		width: $header-width;
+	}
 }
 
 .pageTitle {
-	margin: 2rem 0;
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
 }
 
 .show {

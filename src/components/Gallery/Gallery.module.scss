@@ -1,0 +1,29 @@
+@import '../../styles/utils/variables';
+
+.masonryWithColumns {
+	columns: 1;
+	// column-gap: 1.3rem;
+	// padding: 1rem;
+	// box-shadow: $shadow;
+	& .article {
+		background: #ec985a;
+		margin: 0 0 1rem;
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		box-shadow: $shadow;
+	}
+
+	@media (min-width: $medium-view) {
+		columns: 2;
+	}
+	@media (min-width: $desktop-view) {
+		columns: 3;
+	}
+}
+
+.image {
+	width: 100%;
+	object-fit: cover;
+	display: block;
+}

@@ -1,0 +1,9 @@
+@import '../../styles//utils/variables';
+.section {
+	margin: 3rem 0;
+	width: 90%;
+	max-width: 800px;
+	& .subtitle {
+		color: $dark-color-lighter;
+	}
+}
