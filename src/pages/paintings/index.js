@@ -15,7 +15,7 @@ const Paintings = ({ textContent, paintings }) => {
 };
 
 export async function getStaticProps() {
-	const urls = [`/posts?category.name=Paintings`, '/paintings'];
+	const urls = [`/posts?category.name=Paintings&_sort=generalDisplayOrder:ASC`, '/paintings'];
 	let [paintings, textContent] = await fetchAll(urls);
 	return {
 		props: {
