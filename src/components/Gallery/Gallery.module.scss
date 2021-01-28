@@ -1,32 +1,54 @@
 @import '../../styles/utils/variables';
 
 .columns {
-	margin: 0 auto;
-	max-width: 900px;
-	columns: 1;
-	column-fill: balance;
-	column-rule: 1px solid #ddd;
-	column-gap: 50px;
-	& .article {
-		display: inline-block;
-		padding-bottom: 25px;
-		margin-bottom: 25px;
-		border-bottom: 1px solid #ddd;
-	}
+	display: flex;
+	flex-wrap: wrap;
 
-	@media (min-width: $medium-view) {
-		columns: 2;
-	}
-	@media (min-width: $desktop-view) {
-		columns: 3;
+	justify-content: center;
+
+	position: relative;
+	// min-width: 300px;
+	// max-width: 100%;
+	// text-align: center;
+	// margin: auto;
+
+	& .article {
+		display: block;
+		position: relative;
+		height: 400px;
+		width: 100%;
+		// padding-bottom: 25px;
+
+		margin: 4px;
+		border-bottom: 1px solid #ddd;
+		// & img {
+		// 	width: 100% !important;
+		// 	height: auto !important;
+		// 	min-width: unset !important;
+		// 	min-height: unset !important;
+		// 	max-width: unset !important;
+		// 	max-height: unset !important;
+		// }
+
+		// & > div {
+		// 	position: relative !important;
+		// 	box-shadow: $shadow !important;
+		// }
+
+		// & > div > img {
+		// 	position: relative !important;
+		// }
+
+		@media (min-width: $medium-view) {
+			width: 45%;
+		}
+		@media (min-width: $desktop-view) {
+			width: 30%;
+		}
 	}
 }
 
 .image {
-	width: 100%;
 	object-fit: cover;
-	display: inline-block;
-	box-shadow: $shadow;
-	max-width: 100%;
-	vertical-align: middle;
+	object-position: center;
 }
