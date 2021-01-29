@@ -1,17 +1,22 @@
 // Components
 import Description from '../../components/modules/Description/Description';
+import Image from '../../components/elements/Image/Image';
+
+// Styles
+import classes from '../../styles/pages.module.scss';
 
 // Utils
 import Layout from '../../components/layouts/Layout';
 import fetchOne from '../../utils/fetchOne';
-import { baseUrl } from '../../../config/server';
 
 const Bio = ({ bio }) => {
-	console.log(bio);
 	return (
 		<Layout>
-			<img src={baseUrl + bio.profilepicture.url} alt={bio.profilepicture.name} />
-			<Description textContent={bio} />
+			<Description textContent={bio}>
+				<div className={classes.bioImageWrapper}>
+					<Image src={bio.profilepicture.url} alt={bio.profilepicture.name} />
+				</div>
+			</Description>
 		</Layout>
 	);
 };

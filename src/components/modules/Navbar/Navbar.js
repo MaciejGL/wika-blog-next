@@ -15,12 +15,8 @@ const Navbar = () => {
 			path: '/bio',
 		},
 		{
-			name: 'Obrazy',
-			path: '/paintings',
-		},
-		{
-			name: 'Rysunki',
-			path: '/drawings',
+			name: 'Portfolio',
+			path: '/myworks',
 		},
 		{
 			name: 'Kontakt',

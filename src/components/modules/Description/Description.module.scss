@@ -1,9 +1,13 @@
 @import '../../../styles/utils/variables';
 .section {
-	margin: 3rem 0;
+	margin: 10rem auto 6rem;
 	width: 90%;
 	max-width: 800px;
-	& .subtitle {
-		color: $dark-color-lighter;
+	@media (min-width: $large-view) {
+		margin: 10rem auto 6rem;
+	}
+
+	.subtitle {
+		margin: 2rem 0;
 	}
 }

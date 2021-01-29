@@ -8,9 +8,6 @@ import Gallery from '../components/modules/Gallery/Gallery';
 // Utils
 import fetchAll from '../utils/promiseAll';
 
-// Styles
-// import classes from '../styles/pages.module.scss'
-
 const Home = ({ articles, textContent }) => {
 	return (
 		<Layout>
@@ -22,7 +19,6 @@ const Home = ({ articles, textContent }) => {
 
 export async function getStaticProps() {
 	const urls = [`/posts?showOnHomepage=true&_sort=orderToDisplayOnHomepage:ASC&_limit=6`, `/index-page`];
-	// const urls = [`/posts?_sort=createdAt:DESC`, `/homepage`];
 	let [articles, homepage] = await fetchAll(urls);
 	return {
 		props: {

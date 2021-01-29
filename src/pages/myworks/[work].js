@@ -2,7 +2,7 @@ import fetch from '../../utils/fetchOne';
 
 import Art from '../../components/templates/Art/Art';
 
-const Drawing = ({ art }) => <Art art={art} />;
+const Work = ({ art }) => <Art art={art} />;
 
 export async function getStaticPaths() {
 	let posts = await fetch(`/posts?category.name=Drawings`);
@@ -23,4 +23,4 @@ export async function getStaticProps({ params }) {
 	};
 }
 
-export default Drawing;
+export default Work;
