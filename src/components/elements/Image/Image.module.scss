@@ -1,0 +1,23 @@
+.imagePlaceholder {
+	& img {
+		width: 100% !important;
+		height: auto !important;
+		min-width: unset !important;
+		min-height: unset !important;
+		max-height: unset !important;
+		transition: 0.3s ease-in-out;
+	}
+
+	& > div:first-child {
+		position: relative !important;
+	}
+
+	& > div:first-child > img {
+		position: relative !important;
+	}
+}
+
+.image {
+	object-fit: cover;
+	object-position: center;
+}

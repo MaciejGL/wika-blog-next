@@ -1,26 +1,29 @@
 import React from 'react';
-import Layout from '../components/Layout';
-import Main from '../components/Main/Main';
-import Images from '../components/Images/Images';
-import Description from '../components/Description/Description';
+
+// Components
+import Layout from '../components/layouts/Layout';
+import Description from '../components/modules/Description/Description';
+import Gallery from '../components/modules/Gallery/Gallery';
+
+// Utils
 import fetchAll from '../utils/promiseAll';
 
-const Home = ({ posts, homepage }) => (
-	<Layout>
-		<Main>
-			<Description page={homepage} />
-			<Images posts={posts} path={'/'} />
-		</Main>
-	</Layout>
-);
+const Home = ({ articles, textContent }) => {
+	return (
+		<Layout>
+			<Description textContent={textContent} />
+			<Gallery articles={articles} />
+		</Layout>
+	);
+};
 
 export async function getStaticProps() {
-	const urls = [`/posts?_sort=createdAt:DESC&_limit=3`, `/home-page`];
-	let [posts, homepage] = await fetchAll(urls);
+	const urls = [`/posts?showOnHomepage=true&_sort=orderToDisplayOnHomepage:ASC&_limit=6`, `/index-page`];
+	let [articles, homepage] = await fetchAll(urls);
 	return {
 		props: {
-			posts: posts.data,
-			homepage: homepage.data,
+			articles: articles.data,
+			textContent: homepage.data,
 		},
 		revalidate: 5,
 	};

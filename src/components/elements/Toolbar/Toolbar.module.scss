@@ -1,0 +1,22 @@
+@import '../../../styles/utils/variables';
+
+.Toolbar {
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 900;
+	color: $dark-color;
+	transition: 0.3s;
+	& > div {
+		margin: 10px;
+	}
+	&.switchColor {
+		color: $light-color;
+	}
+	@media (min-width: 960px) {
+		display: none;
+	}
+}

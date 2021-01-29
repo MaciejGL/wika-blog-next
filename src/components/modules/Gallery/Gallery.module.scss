@@ -1,0 +1,55 @@
+@import '../../../styles/utils/variables';
+
+.columns {
+	columns: 1;
+	column-gap: 0;
+
+	margin: 0 auto 2rem;
+	padding-top: 1rem;
+	max-width: 1000px;
+	@media (min-width: $medium-view) {
+		columns: 2;
+	}
+	@media (min-width: $desktop-view) {
+		columns: 3;
+	}
+
+	& .article {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		cursor: pointer;
+
+		& .imageOverlay {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 101%;
+			height: 101%;
+			background-color: transparent;
+			transition: background-color 0.1s linear;
+			overflow: hidden;
+		}
+
+		& .innerText {
+			text-align: center;
+			opacity: 0;
+			transform: translateY(20px);
+			transition: transform 0.3s ease-in-out, opacity 0.2s 0.1s;
+		}
+
+		&:hover .imageOverlay {
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+
+		&:hover .innerText {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
+}

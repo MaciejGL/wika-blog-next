@@ -1,0 +1,12 @@
+@import './utils/variables';
+.bioImageWrapper {
+	max-height: 300px;
+	width: 100%;
+	max-width: 800px;
+	overflow: hidden;
+	margin: 2rem 0;
+	box-shadow: $shadow;
+	img {
+		filter: grayscale(0.6);
+	}
+}
