@@ -9,14 +9,27 @@ import Filter from '../../components/modules/Filter/Filter';
 
 const MyWorks = ({ works }) => {
 	const [filter, setFilter] = useState('all');
-	const filterHandler = (e, filter) => {
-		console.log(e.target.innerText, filter);
+	const switchFilterTo = (filter) => {
 		setFilter(filter);
 	};
+	let filteredWorks = works;
+
+	const filterByCategory = (category) => works.filter((work) => work.category.name.toLowerCase() === category);
+	switch (filter) {
+		case 'paintings':
+			filteredWorks = filterByCategory('paintings');
+			break;
+		case 'drawings':
+			filteredWorks = filterByCategory('drawings');
+			break;
+		default:
+			filteredWorks;
+			break;
+	}
 	return (
 		<Layout>
-			<Filter filter={filter} filterHandler={filterHandler} />
-			<Gallery articles={works} />
+			<Filter filter={filter} switchFilterTo={switchFilterTo} />
+			<Gallery articles={filteredWorks} />
 		</Layout>
 	);
 };
