@@ -1,0 +1,26 @@
+@import '../../../styles/utils/variables';
+
+.button {
+	position: relative;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	transition: 0.3s;
+	cursor: pointer;
+	&::after {
+		position: absolute;
+		content: '';
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 2px;
+		width: 0;
+		background-color: $contrast-color;
+		transition: 0.3s;
+		border-radius: 2px;
+	}
+
+	&.active::after {
+		width: 100%;
+	}
+}

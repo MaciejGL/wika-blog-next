@@ -1,0 +1,17 @@
+@import '../../../styles/utils/variables';
+
+.NavLink {
+	display: inline-block;
+	font-size: 1.3rem;
+	line-height: 1.4;
+	width: 100%;
+	text-align: center;
+	@media (min-width: $large-view) {
+		font-size: 1.3rem;
+		line-height: 1.6;
+	}
+}
+
+.selected {
+	color: $contrast-color;
+}
