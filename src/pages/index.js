@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Components
-import Layout from '../components/Layout';
-import Description from '../components/Description/Description';
-import Gallery from '../components/Gallery/Gallery';
+import Layout from '../components/layouts/Layout';
+import Description from '../components/modules/Description/Description';
+import Gallery from '../components/modules/Gallery/Gallery';
 
 // Utils
 import fetchAll from '../utils/promiseAll';
@@ -21,7 +21,7 @@ const Home = ({ articles, textContent }) => {
 };
 
 export async function getStaticProps() {
-	const urls = [`/posts?showOnHomepage=true&_sort=orderToDisplayOnHomepage:ASC&_limit=6`, `/homepage`];
+	const urls = [`/posts?showOnHomepage=true&_sort=orderToDisplayOnHomepage:ASC&_limit=6`, `/index-page`];
 	// const urls = [`/posts?_sort=createdAt:DESC`, `/homepage`];
 	let [articles, homepage] = await fetchAll(urls);
 	return {

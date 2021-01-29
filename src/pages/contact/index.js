@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
+import Layout from '../../components/layouts/Layout';
 
-import fetchOne from '../utils/fetchOne';
+import fetchOne from '../../utils/fetchOne';
 
 const Contact = ({ contact }) => (
 	<Layout>

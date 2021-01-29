@@ -1,9 +1,9 @@
-import Layout from '../../components/Layout';
 import fetchAll from '../../utils/promiseAll';
 
 // Components
-import Description from '../../components/Description/Description';
-import Gallery from '../../components/Gallery/Gallery';
+import Layout from '../../components/layouts/Layout';
+import Description from '../../components/modules/Description/Description';
+import Gallery from '../../components/modules/Gallery/Gallery';
 
 const Paintings = ({ textContent, paintings }) => {
 	return (

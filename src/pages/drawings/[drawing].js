@@ -1,19 +1,8 @@
 import fetch from '../../utils/fetchOne';
 
-import classes from './drawing.module.scss';
+import Art from '../../components/templates/Art/Art';
 
-import Layout from '../../components/Layout';
-
-const Drawing = ({ item }) => {
-	if (!item) {
-		return <p>No picture</p>;
-	}
-	return (
-		<Layout>
-			<p>Drawing Single</p>
-		</Layout>
-	);
-};
+const Drawing = ({ art }) => <Art art={art} />;
 
 export async function getStaticPaths() {
 	let posts = await fetch(`/posts?category.name=Drawings`);
@@ -28,7 +17,7 @@ export async function getStaticProps({ params }) {
 
 	return {
 		props: {
-			item: drawing.data[0],
+			art: drawing.data[0],
 		},
 		revalidate: 5,
 	};

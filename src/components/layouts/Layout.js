@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 
-import Header from './Header/Header';
-import Toolbar from './Toolbar/Toolbar';
+import Header from '../modules/Header/Header';
+import Toolbar from '../elements/Toolbar/Toolbar';
 
 // import Footer from './Footer/Footer';
 

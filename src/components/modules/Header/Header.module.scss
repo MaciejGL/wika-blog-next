@@ -1,4 +1,4 @@
-@import '../../styles/utils/variables';
+@import '../../../styles/utils/variables';
 
 .Header {
 	position: fixed;
@@ -12,6 +12,7 @@
 	height: 100vh;
 	color: $light-color;
 	background-color: $dark-color;
+	z-index: 100;
 	transition: left 0.3s ease-out;
 	@media (min-width: 960px) {
 		left: 0;

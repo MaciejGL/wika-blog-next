@@ -9,7 +9,6 @@ const Header = ({ isOpen, toggleHeader }) => {
 		<header onClick={toggleHeader} className={[classes.Header, isOpen && classes.show].join(' ')}>
 			<h1 className={classes.pageTitle}>Wiktoria Art</h1>
 			<Navbar />
-			{/* <div>Social</div> */}
 		</header>
 	);
 };

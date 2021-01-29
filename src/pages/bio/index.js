@@ -1,10 +1,10 @@
 // Components
-import Layout from '../components/Layout';
-import Description from '../components/Description/Description';
+import Description from '../../components/modules/Description/Description';
 
 // Utils
-import fetchOne from '../utils/fetchOne';
-import { baseUrl } from '../../config/server';
+import Layout from '../../components/layouts/Layout';
+import fetchOne from '../../utils/fetchOne';
+import { baseUrl } from '../../../config/server';
 
 const Bio = ({ bio }) => {
 	console.log(bio);

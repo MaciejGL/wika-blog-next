@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
-import Description from '../components/Description/Description';
+import Layout from '../../components/layouts/Layout';
+import Description from '../../components/Description/Description';
 import Actions from '../components/Actions/Actions';
 
-import fetchOne from '../utils/fetchOne';
+import fetchOne from '../../utils/fetchOne';
 
 const Services = ({ services }) => {
 	return (
