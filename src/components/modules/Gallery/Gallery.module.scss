@@ -4,9 +4,8 @@
 	columns: 1;
 	column-gap: 0;
 
-	margin: 2rem;
+	margin: 0 2rem 2rem;
 	padding-top: 1rem;
-	border-top: 1px solid #ddd;
 	@media (min-width: $medium-view) {
 		columns: 2;
 	}
