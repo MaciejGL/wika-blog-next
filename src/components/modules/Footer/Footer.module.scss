@@ -1,13 +1,19 @@
 @import '../../../styles/utils/variables';
 
 .Footer {
+	margin-top: auto;
+
 	width: 100%;
 	@media (min-width: $large-view) {
 		margin-left: $header-width;
 	}
 
 	.wrapper {
-		width: 100%;
+		width: 90%;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding-top: 4rem;
+		border-top: $border-top;
 		text-align: center;
 	}
 }

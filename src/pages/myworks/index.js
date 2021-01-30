@@ -29,7 +29,7 @@ const MyWorks = ({ works }) => {
 	return (
 		<Layout>
 			<Filter filter={filter} switchFilterTo={switchFilterTo} />
-			<Gallery articles={filteredWorks} />
+			<Gallery articles={works} filter={filter} />
 		</Layout>
 	);
 };

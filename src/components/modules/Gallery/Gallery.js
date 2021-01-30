@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Components
 import Image from '../../elements/Image/Image';
@@ -7,11 +8,28 @@ import Image from '../../elements/Image/Image';
 // Styles
 import classes from './Gallery.module.scss';
 
-const Gallery = ({ articles }) => {
-	const images = articles.map((article) => (
+const Gallery = ({ articles, filter }) => {
+	const [filteredArts, setFilteredArts] = useState(articles);
+
+	useEffect(() => {
+		const newArt = articles.filter((a) => a.category.name.toLowerCase() === filter || filter === 'all');
+		setFilteredArts([]);
+		setFilteredArts(newArt);
+	}, [filter]);
+
+	const images = filteredArts.map((article) => (
 		<Link key={article._id} href={`/myworks/${article.slug}`}>
 			<a>
-				<article className={classes.article}>
+				<motion.article
+					layout
+					layoutId={article._id}
+					initial={{ y: 100, opacity: 0, visibility: 'hidden' }}
+					animate={{ y: 0, opacity: 1, visibility: 'visible' }}
+					transition={{ duration: 0.5, delay: 0, type: 'tween', ease: 'easeOut' }}
+					exit={{ opacity: 0, transition: { duration: 0 } }}
+					key={article._id}
+					className={classes.article}
+				>
 					<Image src={article.picture.url} alt={article.title} />
 					<div className={classes.imageOverlay}>
 						<div className={classes.innerText}>
@@ -19,7 +37,7 @@ const Gallery = ({ articles }) => {
 							<h2>{article.category.name}</h2>
 						</div>
 					</div>
-				</article>
+				</motion.article>
 			</a>
 		</Link>
 	));

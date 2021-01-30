@@ -1,6 +1,7 @@
 @import '../../../styles/utils/variables';
 
 .columns {
+	position: relative;
 	columns: 1;
 	column-gap: 0;
 
@@ -8,7 +9,6 @@
 	padding: 1rem 0 3rem;
 	width: 90%;
 	max-width: 1000px;
-	border-bottom: $border-top;
 
 	@media (min-width: $medium-view) {
 		columns: 2;
@@ -23,7 +23,6 @@
 		width: 100%;
 		overflow: hidden;
 		cursor: pointer;
-
 		& .imageOverlay {
 			position: absolute;
 			display: flex;
