@@ -7,7 +7,6 @@ const Work = ({ art }) => <Art art={art} />;
 export async function getStaticPaths() {
 	let posts = await fetch(`/posts`);
 	const paths = posts.data.map((post) => {
-		// console.log(post);
 		return { params: { slug: post.slug } };
 	});
 
@@ -20,7 +19,6 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			art: data[0],
-			data: 'dasdasd',
 		},
 		revalidate: 5,
 	};

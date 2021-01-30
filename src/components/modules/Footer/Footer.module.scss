@@ -1,5 +1,13 @@
+@import '../../../styles/utils/variables';
+
 .Footer {
 	width: 100%;
-	height: 60px;
-	background-color: #f1f1f1;
+	@media (min-width: $large-view) {
+		margin-left: $header-width;
+	}
+
+	.wrapper {
+		width: 100%;
+		text-align: center;
+	}
 }

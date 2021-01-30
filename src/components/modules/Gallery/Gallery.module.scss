@@ -4,14 +4,18 @@
 	columns: 1;
 	column-gap: 0;
 
-	margin: 0 auto 2rem;
-	padding-top: 1rem;
+	margin: 0 0 2rem;
+	padding: 1rem 0 3rem;
+	width: 90%;
 	max-width: 1000px;
+	border-bottom: $border-top;
+
 	@media (min-width: $medium-view) {
 		columns: 2;
 	}
 	@media (min-width: $desktop-view) {
 		columns: 3;
+		width: auto;
 	}
 
 	& .article {
@@ -26,28 +30,32 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
+			top: 0;
+			left: 0;
 			width: 101%;
 			height: 101%;
-			background-color: transparent;
-			transition: background-color 0.1s linear;
+			background-color: rgba(255, 255, 255, 0.85);
+			opacity: 0;
+			transition: opacity 0.2s;
+			visibility: hidden;
 			overflow: hidden;
 		}
 
 		& .innerText {
 			text-align: center;
 			opacity: 0;
+			visibility: hidden;
 			transform: translateY(20px);
 			transition: transform 0.3s ease-in-out, opacity 0.2s 0.1s;
 		}
 
 		&:hover .imageOverlay {
-			background-color: rgba(255, 255, 255, 0.8);
+			visibility: visible;
+			opacity: 1;
 		}
 
 		&:hover .innerText {
+			visibility: visible;
 			opacity: 1;
 			transform: translateY(0px);
 		}
