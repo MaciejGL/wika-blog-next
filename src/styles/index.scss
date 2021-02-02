@@ -35,3 +35,25 @@ ul {
 	padding: 0;
 	margin: 0;
 }
+
+.anime-enter {
+	transform: scale(0);
+	opacity: 0;
+}
+
+.anime-enter-active {
+	opacity: 1;
+	transform: scale(1);
+	transition: 0.3s 0.3s;
+}
+
+.anime-exit {
+	opacity: 1;
+	transform: scale(1);
+}
+.anime-exit-active {
+	opacity: 0;
+	transform: scale(0);
+
+	transition: 0.3s;
+}

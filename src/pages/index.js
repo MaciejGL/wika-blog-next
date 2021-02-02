@@ -12,7 +12,7 @@ const Home = ({ articles, textContent }) => {
 	return (
 		<Layout>
 			<Description textContent={textContent} />
-			<Gallery articles={articles} />
+			<Gallery articles={articles} filter="all" />
 		</Layout>
 	);
 };

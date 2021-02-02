@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Header from '../modules/Header/Header';
 import Toolbar from '../elements/Toolbar/Toolbar';
 
-// import Footer from './Footer/Footer';
+import Footer from '../modules/Footer/Footer';
 
 import classes from './Layout.module.scss';
 
@@ -21,7 +21,7 @@ const Layout = (props) => {
 			<Header isOpen={isOpen} toggleHeader={toggleHeader} />
 
 			<div className={classes.Layout}>{props.children}</div>
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 };

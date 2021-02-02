@@ -1,0 +1,13 @@
+@import '../../../styles/utils/variables';
+.artDetails {
+	margin-top: 4rem;
+	width: 100%;
+	max-width: 1000px;
+}
+.pictureWrapper {
+	padding: 2rem 0;
+	max-width: 1000px;
+	width: 100%;
+	text-align: center;
+	border-top: $border-top;
+}

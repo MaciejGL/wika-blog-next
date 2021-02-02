@@ -1,6 +1,12 @@
+@import '../../../styles/utils/variables';
+
 .filterContainer {
-	margin: 6rem auto 0;
+	margin: 6rem 0 0;
 	padding-top: 2rem;
-	border-top: 1px solid #ddd;
-	max-width: 1000px;
+	border-top: $border-top;
+	width: 90%;
+	@media (min-width: $large-view) {
+		max-width: 1000px;
+		width: 100%;
+	}
 }

@@ -10,3 +10,20 @@
 		filter: grayscale(0.6);
 	}
 }
+
+.contact {
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: $desktop-view) {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.contactText {
+		@media (min-width: $desktop-view) {
+			padding-right: 2rem;
+		}
+	}
+}

@@ -1,9 +1,18 @@
 import React from 'react';
 
 import classes from './Footer.module.scss';
+import Contact from '../Contact/Contact';
+import Social from '../Social/Social';
 
 const Footer = () => {
-	return <div className={classes.Footer}>Footer</div>;
+	return (
+		<footer className={classes.Footer}>
+			<div className={classes.wrapper}>
+				<Contact />
+				{/* <Social /> */}
+			</div>
+		</footer>
+	);
 };
 
 export default Footer;

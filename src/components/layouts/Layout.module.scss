@@ -4,9 +4,16 @@
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: stretch;
+	min-height: 100vh;
 	width: 100%;
 }
 .Layout {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+	padding: 1rem;
 	width: 100%;
 	@media (min-width: $large-view) {
 		margin-left: $header-width;
