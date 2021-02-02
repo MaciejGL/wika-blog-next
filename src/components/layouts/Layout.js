@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import Header from '../modules/Header/Header';
 import Toolbar from '../elements/Toolbar/Toolbar';
+import Seo from '../seo/seo';
 
 import Footer from '../modules/Footer/Footer';
 
@@ -14,9 +15,7 @@ const Layout = (props) => {
 	const toggleHeader = () => setIsOpen(!isOpen);
 	return (
 		<div className={classes.wrapper}>
-			<Head>
-				<title>Witkoria Portfolio</title>
-			</Head>
+			<Seo />
 			<Toolbar isOpen={isOpen} setIsOpen={setIsOpen} />
 			<Header isOpen={isOpen} toggleHeader={toggleHeader} />
 

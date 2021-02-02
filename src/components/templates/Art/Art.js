@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 // Components
 import Layout from '../../layouts/Layout';
+import Seo from '../../seo/seo';
 
 // Styles
 import classes from './Art.module.scss';
@@ -10,6 +11,7 @@ const Art = ({ art }) => {
 	if (!art) return null;
 	return (
 		<Layout>
+			<Seo title={art.title} />
 			<section className={classes.artDetails}>
 				<div>
 					<h2>{art.category.name}</h2>
