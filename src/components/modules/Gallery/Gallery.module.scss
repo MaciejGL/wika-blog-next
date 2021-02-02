@@ -12,6 +12,7 @@
 
 	@media (min-width: $medium-view) {
 		columns: 2;
+		column-gap: 1rem;
 	}
 	@media (min-width: $desktop-view) {
 		columns: 3;
@@ -20,6 +21,7 @@
 
 	& .article {
 		position: relative;
+		margin-top: 1rem;
 		width: 100%;
 		overflow: hidden;
 		cursor: pointer;
@@ -58,5 +60,8 @@
 			opacity: 1;
 			transform: translateY(0px);
 		}
+	}
+	& a:first-child .article {
+		margin-top: 0;
 	}
 }

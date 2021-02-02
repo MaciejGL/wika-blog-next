@@ -1,0 +1,16 @@
+@import '../../../styles/utils/variables';
+.Footer {
+	@media (min-width: $desktop-view) {
+		display: flex;
+		justify-content: space-between;
+	}
+	p {
+		font-size: 1rem;
+		font-weight: 300;
+		color: $font-color-light;
+	}
+	span {
+		color: black;
+		font-weight: 500;
+	}
+}

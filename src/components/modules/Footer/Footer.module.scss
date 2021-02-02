@@ -11,9 +11,12 @@
 	.wrapper {
 		width: 90%;
 		max-width: 1000px;
-		margin: 0 auto;
+		margin: 0 auto 2rem;
 		padding-top: 4rem;
 		border-top: $border-top;
 		text-align: center;
+		@media (min-width: $desktop-view) {
+			text-align: left;
+		}
 	}
 }

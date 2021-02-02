@@ -1,0 +1,18 @@
+@import '../../../styles/utils/variables';
+
+.form {
+	> div {
+		margin-top: 1rem;
+	}
+
+	> button {
+		margin: 1rem 0 0;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		background-color: rgb(0, 88, 0);
+		width: auto;
+		&:hover {
+			background-color: green;
+		}
+	}
+}

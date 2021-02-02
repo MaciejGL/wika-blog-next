@@ -16,8 +16,8 @@ const Filter = ({ filter, switchFilterTo }) => {
 	return (
 		<div className={classes.filterContainer}>
 			{createButton('all', 'Wszystkie')}
-			{createButton('paintings', 'Obrazy')}
-			{createButton('drawings', 'Rysunki')}
+			{createButton('obraz', 'Obrazy')}
+			{createButton('rysunek', 'Rysunki')}
 		</div>
 	);
 };
