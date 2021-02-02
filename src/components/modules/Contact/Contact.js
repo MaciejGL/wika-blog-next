@@ -9,7 +9,7 @@ const Contact = () => {
 	return (
 		<article className={classes.Footer}>
 			<p>
-				Email: <span>contact@gmail.com</span>
+				Email: <span>wiktoria.tymoszczuk@gmail.com</span>
 			</p>
 			<p>
 				© {currentYear} <span>Wiktoria Art</span>. All rights reserved.
