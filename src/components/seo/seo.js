@@ -1,11 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
+
+import { SEO } from '../CONSTANTS';
 
 const seo = ({ pageTitle, desc }) => {
-	const title = pageTitle ? `Victoria T Art - ${pageTitle}` : 'Victoria T Art';
-	const description = desc || 'Victoria T Art - artists portfolio...';
-	const image = 'https://wika-cms.herokuapp.com/files/reka1.PNG?auto=format&fit=max&w=1920';
-	const url = 'https://www.wiktoria-art.com/';
+	const title = pageTitle ? `${SEO.title} - ${pageTitle}` : SEO.title;
+	const description = desc || SEO.description;
+	const image = SEO.image;
+	const url = SEO.url;
 	return (
 		<Head>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -36,6 +39,11 @@ const seo = ({ pageTitle, desc }) => {
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 		</Head>
 	);
+};
+
+seo.propTypes = {
+	pageTitle: PropTypes.string,
+	desc: PropTypes.string,
 };
 
 export default seo;

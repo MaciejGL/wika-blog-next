@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 // Components
 import Layout from '../../layouts/Layout';
@@ -9,23 +10,38 @@ import classes from './Art.module.scss';
 
 const Art = ({ art }) => {
 	if (!art) return null;
+	const { title, description, category, picture } = art;
 	return (
 		<Layout>
-			<Seo pageTitle={art.title} desc={art.description} />
+			<Seo pageTitle={title} desc={description} />
 			<section className={classes.artDetails}>
 				<div>
-					<h2>{art.category.name}</h2>
-					<h1>{art.title}</h1>
+					<h2>{category.name}</h2>
+					<h1>{title}</h1>
 				</div>
 				<div>
-					<p>{art.description}</p>
+					<p>{description}</p>
 				</div>
 			</section>
 			<div className={classes.pictureWrapper}>
-				<Image src={art.picture.url} layout="intrinsic" height={art.picture.height} width={art.picture.width} />
+				<Image src={picture.url} layout="intrinsic" height={picture.height} width={picture.width} />
 			</div>
 		</Layout>
 	);
 };
 
+Art.propTypes = {
+	art: PropTypes.shape({
+		title: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		category: PropTypes.shape({
+			name: PropTypes.string.isRequired,
+		}),
+		picture: PropTypes.shape({
+			url: PropTypes.string.isRequired,
+			width: PropTypes.number.isRequired,
+			height: PropTypes.number.isRequired,
+		}),
+	}),
+};
 export default Art;

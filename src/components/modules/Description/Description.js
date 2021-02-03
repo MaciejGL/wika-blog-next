@@ -26,6 +26,7 @@ Description.propTypes = {
 				text: PropTypes.string.isRequired,
 			})
 		),
+		children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 	}),
 };
 

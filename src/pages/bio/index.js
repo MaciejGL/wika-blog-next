@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // Components
 import Description from '../../components/modules/Description/Description';
 import Image from '../../components/elements/Image/Image';
@@ -9,17 +11,15 @@ import classes from '../../styles/pages.module.scss';
 import Layout from '../../components/layouts/Layout';
 import fetchOne from '../../utils/fetchOne';
 
-const Bio = ({ bio }) => {
-	return (
-		<Layout>
-			<Description textContent={bio}>
-				<div className={classes.bioImageWrapper}>
-					<Image src={bio.profilepicture.url} alt={bio.profilepicture.name} />
-				</div>
-			</Description>
-		</Layout>
-	);
-};
+const Bio = ({ bio }) => (
+	<Layout>
+		<Description textContent={bio}>
+			<div className={classes.bioImageWrapper}>
+				<Image src={bio.profilepicture.url} alt={bio.profilepicture.name} />
+			</div>
+		</Description>
+	</Layout>
+);
 
 export async function getStaticProps() {
 	const url = `/bio`;
@@ -31,5 +31,9 @@ export async function getStaticProps() {
 		},
 	};
 }
+
+Bio.propTypes = {
+	bio: PropTypes.object.isRequired,
+};
 
 export default Bio;

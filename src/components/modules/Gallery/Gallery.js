@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 // Components
 import Image from '../../elements/Image/Image';
@@ -12,14 +13,14 @@ const Gallery = ({ articles, filter }) => {
 	const [filteredArts, setFilteredArts] = useState(articles);
 
 	useEffect(() => {
-		const newArt = articles.filter((a) => a.category.name.toLowerCase() === filter || filter === 'all');
+		const newArt = articles.filter((art) => art.category.name.toLowerCase() === filter || filter === 'all');
 		setFilteredArts([]);
 		setFilteredArts(newArt);
 	}, [filter]);
 
 	const images = filteredArts.map((article) => (
 		<Link key={article._id} href={`/myworks/${article.slug}`}>
-			<a>
+			<a aria-label={article.title}>
 				<motion.article
 					layout
 					layoutId={article._id}
@@ -43,6 +44,18 @@ const Gallery = ({ articles, filter }) => {
 	));
 
 	return <section className={classes.columns}>{images}</section>;
+};
+
+Gallery.propTypes = {
+	articles: PropTypes.arrayOf(
+		PropTypes.shape({
+			_id: PropTypes.string.isRequired,
+			slug: PropTypes.string.isRequired,
+			title: PropTypes.string.isRequired,
+			category: PropTypes.shape({ name: PropTypes.string.isRequired }),
+			picture: PropTypes.shape({ url: PropTypes.string.isRequired }),
+		})
+	),
 };
 
 export default Gallery;
