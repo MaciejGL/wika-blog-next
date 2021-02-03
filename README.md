@@ -1,15 +1,6 @@
-# Home Budget App - In Progress
+# Victoria T Art - In Progress
 
-Blog website for Wiktoria T.
-
-### To run app
-
-- Clone repositry,
-- Go into directory `cd wika-blog-next`
-- Run `npm install`
-- Run `npm run dev`
-
-Your app will be available at http://localhost:3000/
+Victoria T Art is a portfolio/blog website built on Next.js. Plan behind the project was simple, to make an easly managable application for non programmer. Owner wants to be able to upload her arts to present skills and possibly make a connections with new customers.
 
 ## Goal of the project:
 
@@ -23,27 +14,11 @@ Create responsive, easy to follow, blog/portfolio. Content should be dynamic and
 
 ## Stack
 
-- HTML
-- CSS
-- JS
 - React
 - NextJS
+- Strapi
 
 ### Live
+https://victoria-t-art.com/
 
-Not yet available.
-
-![](wika.png)
-
-### todo
-
-Paintings, Drawings
-
-- picture big size and rest small.
-- clickable
-- pagination
-- Style detailed page
-- navigation to another paintings/drawings on detailed view
-- thumbnail pic hover, title
-- contact connect mail and style,
-- FAQ
+![](victoria-devices-modified.jpg)
