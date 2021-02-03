@@ -19,7 +19,7 @@ const Navbar = () => {
 			path: '/myworks',
 		},
 		{
-			name: 'Kontakt',
+			name: 'Contact',
 			path: '/contact',
 		},
 	];

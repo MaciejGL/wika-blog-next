@@ -19,12 +19,12 @@ export const submitFormHandler = async (values, resetForm, setIsLoading, setEmai
 	const emailData = formatEmail(values);
 	try {
 		const { status } = await axios.post(`https://wika-cms.herokuapp.com/emails`, emailData);
-		status === 200 && setEmailResponse({ success: true, text: 'Wiadomość została wysłana.' });
+		status === 200 && setEmailResponse({ success: true, text: 'Message has been sent.' });
 
 		setIsLoading(false);
 		resetForm({});
 	} catch (error) {
-		setEmailResponse({ success: false, text: 'Coś poszło nie tak z wysyłaniem wiadomości. Proszę spróbuj ponownie.' });
+		setEmailResponse({ success: false, text: 'Something went wront, please try again or contact with me through email.' });
 		setIsLoading(false);
 	}
 };

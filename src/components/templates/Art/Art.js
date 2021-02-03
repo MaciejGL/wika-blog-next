@@ -11,7 +11,7 @@ const Art = ({ art }) => {
 	if (!art) return null;
 	return (
 		<Layout>
-			<Seo title={art.title} />
+			<Seo pageTitle={art.title} desc={art.description} />
 			<section className={classes.artDetails}>
 				<div>
 					<h2>{art.category.name}</h2>

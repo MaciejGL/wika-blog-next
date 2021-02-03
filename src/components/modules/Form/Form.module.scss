@@ -1,8 +1,18 @@
 @import '../../../styles/utils/variables';
-
+.formWrapper {
+	margin-top: 3rem;
+	padding: 1rem;
+	@media (min-width: $desktop-view) {
+		margin: 0;
+		padding: 0 1rem;
+	}
+}
 .form {
 	> div {
 		margin-top: 1rem;
+	}
+	& > div:first-child {
+		margin-top: 0;
 	}
 
 	> button {

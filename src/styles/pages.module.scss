@@ -12,11 +12,14 @@
 }
 
 .contact {
-	margin-top: auto;
+	margin-top: 5rem;
 	display: flex;
 	flex-direction: column;
+	width: 90%;
 
 	@media (min-width: $desktop-view) {
+		margin-top: auto;
+
 		flex-direction: row;
 		justify-content: space-around;
 	}
