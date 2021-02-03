@@ -11,7 +11,7 @@ const MyWorks = ({ works }) => {
 	const switchFilterTo = (filter) => {
 		setFilter(filter);
 	};
-
+	// console.log(logo);
 	return (
 		<Layout>
 			<Filter filter={filter} switchFilterTo={switchFilterTo} />
@@ -22,10 +22,11 @@ const MyWorks = ({ works }) => {
 
 export async function getStaticProps() {
 	const urls = [`/posts?_sort=generalDisplayOrder:ASC`];
-	let [works] = await fetchAll(urls);
+	let [works, logo] = await fetchAll(urls);
 	return {
 		props: {
 			works: works.data,
+			// logo: logo.data,
 		},
 		revalidate: 5,
 	};

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useState } from 'react';
 
 import Header from '../modules/Header/Header';
@@ -9,7 +8,7 @@ import Footer from '../modules/Footer/Footer';
 
 import classes from './Layout.module.scss';
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleHeader = () => setIsOpen(!isOpen);
@@ -19,7 +18,7 @@ const Layout = (props) => {
 			<Toolbar isOpen={isOpen} setIsOpen={setIsOpen} />
 			<Header isOpen={isOpen} toggleHeader={toggleHeader} />
 
-			<div className={classes.Layout}>{props.children}</div>
+			<div className={classes.Layout}>{children}</div>
 			<Footer />
 		</div>
 	);

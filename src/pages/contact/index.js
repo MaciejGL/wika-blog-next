@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Layout from '../../components/layouts/Layout';
 import Form from '../../components/modules/Form/Form';
@@ -33,5 +34,13 @@ export async function getStaticProps() {
 		},
 	};
 }
+
+Contact.propTypes = {
+	contact: PropTypes.shape({
+		heading: PropTypes.string.isRequired,
+		subheading: PropTypes.string.isRequired,
+		socials: PropTypes.arrayOf(PropTypes.object.isRequired),
+	}),
+};
 
 export default Contact;

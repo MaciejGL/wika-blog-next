@@ -6,7 +6,6 @@ import { TextField, Button, Typography } from '@material-ui/core';
 
 // Styles
 import classes from './Form.module.scss';
-import { useStyles_ContactForm } from './muiStyles';
 
 // utils
 import { submitFormHandler, validationSchema } from './formUtils';
@@ -14,7 +13,6 @@ import { submitFormHandler, validationSchema } from './formUtils';
 const Form = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [emailReposne, setEmailResponse] = useState('');
-	const classes_Mui = useStyles_ContactForm();
 
 	const formik = useFormik({
 		initialValues: {

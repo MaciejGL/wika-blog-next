@@ -2,29 +2,12 @@ import React from 'react';
 
 import Link from './NavLink';
 
+import { LINKS } from '../../../utils/CONSTANTS';
+
 import classes from './Navbar.module.scss';
 
 const Navbar = () => {
-	const links = [
-		{
-			name: 'Home',
-			path: '/',
-		},
-		{
-			name: 'Bio',
-			path: '/bio',
-		},
-		{
-			name: 'Portfolio',
-			path: '/myworks',
-		},
-		{
-			name: 'Contact',
-			path: '/contact',
-		},
-	];
-
-	const linksList = links.map((link) => (
+	const linksList = LINKS.map((link) => (
 		<Link key={link.name} link={link.path}>
 			{link.name}
 		</Link>

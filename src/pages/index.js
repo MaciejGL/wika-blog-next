@@ -8,14 +8,12 @@ import Gallery from '../components/modules/Gallery/Gallery';
 // Utils
 import fetchAll from '../utils/promiseAll';
 
-const Home = ({ articles, textContent }) => {
-	return (
-		<Layout>
-			<Description textContent={textContent} />
-			<Gallery articles={articles} filter="all" />
-		</Layout>
-	);
-};
+const Home = ({ articles, textContent }) => (
+	<Layout>
+		<Description textContent={textContent} />
+		<Gallery articles={articles} filter="all" />
+	</Layout>
+);
 
 export async function getStaticProps() {
 	const urls = [`/posts?showOnHomepage=true&_sort=orderToDisplayOnHomepage:ASC&_limit=6`, `/index-page`];

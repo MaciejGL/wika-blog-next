@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import Button from '../../elements/Button/Button';
@@ -20,6 +21,11 @@ const Filter = ({ filter, switchFilterTo }) => {
 			{createButton('drawing', 'Drawings')}
 		</div>
 	);
+};
+
+Filter.propTypes = {
+	filter: PropTypes.string.isRequired,
+	switchFilterTo: PropTypes.func.isRequired,
 };
 
 export default Filter;

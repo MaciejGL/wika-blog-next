@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import classes from './Social.module.scss';
 
@@ -12,5 +13,17 @@ const Social = ({ socials }) => (
 		))}
 	</section>
 );
+
+Social.propTypes = {
+	socials: PropTypes.arrayOf(
+		PropTypes.shape({
+			socialLink: PropTypes.string.isRequired,
+			icon: PropTypes.shape({
+				url: PropTypes.string.isRequired,
+				name: PropTypes.string.isRequired,
+			}),
+		})
+	),
+};
 
 export default Social;
