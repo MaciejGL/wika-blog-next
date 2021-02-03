@@ -29,18 +29,16 @@ const Form = () => {
 		<div className={classes.formWrapper}>
 			<form onSubmit={formik.handleSubmit} className={classes.form}>
 				<TextField
-					// className={classes_Mui.input}
 					fullWidth
 					id="name"
 					name="name"
-					label="Imię"
+					label="Name"
 					value={formik.values.name}
 					onChange={formik.handleChange}
 					error={formik.touched.name && Boolean(formik.errors.name)}
 					helperText={formik.touched.name && formik.errors.name}
 				/>
 				<TextField
-					// className={classes_Mui.input}
 					fullWidth
 					id="email"
 					name="email"
@@ -51,21 +49,20 @@ const Form = () => {
 					helperText={formik.touched.email && formik.errors.email}
 				/>
 				<TextField
-					// className={classes_Mui.input}
 					fullWidth
 					multiline
 					rows={5}
 					rowsMax={7}
 					id="message"
 					name="message"
-					label="Wiadomość"
+					label="Message"
 					value={formik.values.message}
 					onChange={formik.handleChange}
 					error={formik.touched.message && Boolean(formik.errors.message)}
 					helperText={formik.touched.message && formik.errors.message}
 				/>
 				<Button color="primary" disableElevation variant="contained" fullWidth type="submit">
-					{isLoading ? 'Wysyła...' : 'Wyślij'}
+					{isLoading ? 'Sending...' : 'Send'}
 				</Button>
 
 				{emailReposne.success ? (
