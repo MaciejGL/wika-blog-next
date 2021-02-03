@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-import { SEO } from '../CONSTANTS';
+import { SEO } from '../../utils/CONSTANTS';
 
 const seo = ({ pageTitle, desc }) => {
 	const title = pageTitle ? `${SEO.title} - ${pageTitle}` : SEO.title;

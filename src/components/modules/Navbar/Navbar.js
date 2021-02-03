@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from './NavLink';
 
-import { LINKS } from '../../CONSTANTS';
+import { LINKS } from '../../../utils/CONSTANTS';
 
 import classes from './Navbar.module.scss';
 
