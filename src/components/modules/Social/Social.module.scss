@@ -1,8 +1,16 @@
 .socialsContainer {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	margin-top: 2rem;
 	& .link {
 		margin: 0 1rem;
+	}
+}
+
+.image {
+	filter: grayscale(0.1);
+	transition: 0.3s ease-in-out;
+	&:hover {
+		filter: grayscale(0);
 	}
 }
